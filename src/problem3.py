@@ -5,12 +5,13 @@ This module contains:
   -- Methods you must implement for the Cloud object
   
 Authors: David Mutchler, Dave Fisher, Matt Boutell, their colleagues,
-         and PUT_YOUR_NAME_HERE.  October 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Zachary Duncan.  October 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import time
 from numbers import Number
 import testing_helper
+
 
 
 ###############################################################################
@@ -25,10 +26,10 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_init()
-    # run_test_rain()
-    # run_test_get_total_rain_amount()
-    # run_test_merge_cloud()
+    run_test_init()
+    run_test_rain()
+    run_test_get_total_rain_amount()
+    run_test_merge_cloud()
 
 
 ###############################################################################
@@ -76,9 +77,12 @@ class Cloud(object):
           :type water: int | float
         """
         # ---------------------------------------------------------------------
-        # TODO: 2. Implement and test this method.
+        # DONE: 2. Implement and test this method.
         # ---------------------------------------------------------------------
-
+        self.capacity = capacity
+        self.water = water
+        if self.water >= self.capacity:
+            self.water = self.capacity
     def rain(self, rain_amount):
         """
         What comes in:
@@ -124,6 +128,13 @@ class Cloud(object):
         # ---------------------------------------------------------------------
         # TODO: 3. Implement and test this method.
         # ---------------------------------------------------------------------
+        self.rain_amount = rain_amount
+        if rain_amount >= self.water:
+            self.water == 0
+        else:
+            rain_amount = rain_amount
+        return rain_amount
+
 
 
     def get_total_rain_amount(self):
@@ -158,6 +169,7 @@ class Cloud(object):
         # ---------------------------------------------------------------------
         # TODO: 4. Implement and test this method.
         # ---------------------------------------------------------------------
+        self.self = self
 
 
     def merge_cloud(self, another_cloud):
@@ -191,7 +203,7 @@ class Cloud(object):
         # ---------------------------------------------------------------------
         # TODO: 5. Implement and test this method.
         # ---------------------------------------------------------------------
-
+        self.rain_amount = self.append[another_cloud.rain_amount]
 
 ###############################################################################
 # The TEST functions for the  Cloud  class begin here.
